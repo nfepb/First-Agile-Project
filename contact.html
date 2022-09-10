@@ -20,6 +20,21 @@
       type="text/css"
     />
     <link rel="stylesheet" href="assets/css/style.css" />
+    <script
+      type="text/javascript"
+      src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"
+    ></script>
+    <script type="text/javascript">
+      (function () {
+        emailjs.init("n4kBRzsO2qpdvrXqM");
+        emailjs.send(
+          "service_yew12bh",
+          "template_e08jxtr",
+          { name: "Charlie", notes: "The project that I want is..." },
+          "n4kBRzsO2qpdvrXqM"
+        );
+      })();
+    </script>
     <title>Rosie</title>
   </head>
   <body>
@@ -78,7 +93,7 @@
           <h5 class="uppercase text-center">Let's work together!</h5>
 
           <div class="center-form">
-            <form>
+            <form onsubmit="return sendMail(this);">
               <input
                 type="text"
                 name="name"
@@ -177,5 +192,6 @@
         </div>
       </div>
     </footer>
+    <script src="assets/js/sendEmail.js"></script>
   </body>
 </html>
